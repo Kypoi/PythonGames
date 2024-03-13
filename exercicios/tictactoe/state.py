@@ -8,19 +8,17 @@ from exercicios.state import State
 class TicTacToeState(State):
     EMPTY_CELL = -1
 
-    def __init__(self, num_rows: int = 6, num_cols: int = 7):
+    def __init__(self, size: int = 6):
         super().__init__()
 
-        if num_rows < 4:
-            raise Exception("the number of rows must be 4 or over")
-        if num_cols < 4:
-            raise Exception("the number of cols must be 4 or over")
+        if size < 3:
+            raise Exception("the size must be 3 or over")
 
         """
         the dimensions of the board
         """
-        self.__num_rows = num_rows
-        self.__num_cols = num_cols
+        self.__num_rows = size
+        self.__num_cols = size
 
         """
         the grid
@@ -92,6 +90,8 @@ class TicTacToeState(State):
         row = action.get_row()
         if col < 0 or col >= self.__num_cols:
             return False
+        if row < 0 or col >= self.__num_rows:
+            return False
 
     def update(self, action: TicTacToeAction):
         col = action.get_col()
@@ -154,7 +154,7 @@ class TicTacToeState(State):
         return self.__acting_player
 
     def clone(self):
-        cloned_state = TicTacToeState(self.__num_rows, self.__num_cols)
+        cloned_state = TicTacToeState(self.__num_rows)
         cloned_state.__turns_count = self.__turns_count
         cloned_state.__acting_player = self.__acting_player
         cloned_state.__has_winner = self.__has_winner

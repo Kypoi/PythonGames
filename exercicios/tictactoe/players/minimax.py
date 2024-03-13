@@ -3,7 +3,7 @@ import math
 from exercicios.tictactoe.player import TicTacToePlayer
 from exercicios.tictactoe.result import TicTacToeResult
 from exercicios.tictactoe.state import TicTacToeState
-from games.state import State
+from exercicios.state import State
 
 
 class MinimaxTicTacToePlayer(TicTacToePlayer):

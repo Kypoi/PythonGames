@@ -1,4 +1,4 @@
-from _random import choice
+from random import choice
 from exercicios.tictactoe.action import TicTacToeAction
 from exercicios.tictactoe.player import TicTacToePlayer
 from exercicios.tictactoe.state import TicTacToeState

@@ -1,4 +1,4 @@
-from _random import randint
+from random import randint
 
 from exercicios.tictactoe.action import TicTacToeAction
 from exercicios.tictactoe.player import TicTacToePlayer
@@ -12,7 +12,7 @@ class RandomTicTacToePlayer(TicTacToePlayer):
         super().__init__(name)
 
     def get_action(self, state: TicTacToeState):
-        return TicTacToeAction(randint(0, state.get_num_cols()))
+        return TicTacToeAction(randint(0, state.get_num_cols()),state.get_num_cols())
 
     def event_action(self, pos: int, action, new_state: State):
         # ignore

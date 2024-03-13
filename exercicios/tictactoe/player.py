@@ -6,7 +6,6 @@ from exercicios.player import Player
 
 class TicTacToePlayer(Player, ABC):
 
-
     def __init__(self, name):
         super().__init__(name)
 
